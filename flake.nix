@@ -20,6 +20,17 @@
             go
           ];
         };
+
+        packages = {
+          # programs
+          hello-toolchain-backend = pkgs.callPackage ./hello-toolchain/backend/package.nix { flake = self; };
+
+          # images
+          base-image = pkgs.callPackage ./hello-toolchain/base-image.nix { flake = self; };
+          hello-toolchain-backend-image = pkgs.callPackage ./hello-toolchain/backend/image.nix {
+            flake = self;
+          };
+        };
       }
     );
 }
