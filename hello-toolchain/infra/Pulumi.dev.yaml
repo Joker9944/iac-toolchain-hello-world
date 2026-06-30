@@ -1,0 +1,4 @@
+encryptionsalt: v1:NlpjbTeSkek=:v1:vm4CO356O/mDj5LF:CEtt3tLTChCD2XmAfOtpkGHYTeSRlw==
+config:
+  azure-native:location: westeurope
+  hello-toolchain:vmSize: Standard_D2s_v6

@@ -15,11 +15,16 @@
       in
       {
         devShells.default = pkgs.mkShell {
+          name = "hello-toolchain-dev";
+
           packages = with pkgs; [
             azure-cli
             go
             flutter
             dart
+            pulumi
+            pulumictl
+            pulumiPackages.pulumi-go
           ];
         };
 
