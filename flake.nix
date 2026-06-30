@@ -60,7 +60,7 @@
             ];
             text = ''
               TAG=''${1:-latest}
-              API_BASE_URL=''${2:-http://hello-backend.default.svc.cluster.local:8080}
+              API_BASE_URL=''${2:-}
 
               ACR_SERVER=$(pulumi -C hello-toolchain/infra stack output registryLoginServer)
               TOKEN=$(az acr login --name "''${ACR_SERVER%%.*}" --expose-token --output tsv --query accessToken)

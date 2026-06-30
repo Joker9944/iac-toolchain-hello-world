@@ -32,13 +32,13 @@ class _HelloPageState extends State<HelloPage> {
   Future<void> _callBackend() async {
     setState(() => _loading = true);
 
-    const apiBase = String.fromEnvironment(
-      "API_BASE_URL",
-      defaultValue: "http://localhost:8080",
-    );
+    const apiBase = String.fromEnvironment("API_BASE_URL");
+    final uri = apiBase.isEmpty
+        ? Uri.base.resolve("/api/hello")
+        : Uri.parse("$apiBase/api/hello");
 
     try {
-      final res = await http.get(Uri.parse("$apiBase/api/hello"));
+      final res = await http.get(uri);
       final body = jsonDecode(res.body) as Map<String, dynamic>;
       setState(() => _message = body["message"] as String);
     } catch (e) {

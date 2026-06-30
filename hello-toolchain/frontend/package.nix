@@ -15,6 +15,4 @@ flutter.buildFlutterApplication (finalAttrs: {
   autoPubspecLock = ./pubspec.lock;
 
   flutterBuildFlags = lib.optional (apiBaseUrl != null) "--dart-define=API_BASE_URL=${apiBaseUrl}";
-
-  meta.mainProgram = finalAttrs.pname;
 })
