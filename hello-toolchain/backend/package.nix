@@ -6,4 +6,6 @@ buildGoModule (finalAttrs: {
   src = ./.;
 
   vendorHash = null;
+
+  meta.mainProgram = finalAttrs.pname;
 })
