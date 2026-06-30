@@ -26,9 +26,10 @@
             flutter
             dart
             pulumi
-            pulumictl
             pulumiPackages.pulumi-go
+            kubectl
             skopeo
+            kpt
           ];
         };
 

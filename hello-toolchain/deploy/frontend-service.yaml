@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-frontend
+spec:
+  selector:
+    app: hello-frontend
+  ports:
+    - port: 8080
+      targetPort: 8080

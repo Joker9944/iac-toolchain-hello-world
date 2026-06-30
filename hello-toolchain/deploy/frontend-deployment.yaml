@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-frontend
+  labels:
+    app: hello-frontend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: hello-frontend
+  template:
+    metadata:
+      labels:
+        app: hello-frontend
+    spec:
+      containers:
+        - name: hello-frontend
+          image: hellotoolchainregistrybda91d3d.azurecr.io/hello-frontend:latest # kpt-set: ${registry}/${frontend-image}:${tag}
+          ports:
+            - containerPort: 8080
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8080
+            initialDelaySeconds: 3
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 8080
+            initialDelaySeconds: 3
+          resources:
+            requests:
+              cpu: 50m
+              memory: 32Mi
+            limits:
+              cpu: 100m
+              memory: 64Mi

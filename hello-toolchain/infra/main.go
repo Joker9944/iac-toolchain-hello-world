@@ -52,6 +52,11 @@ func main() {
 			Identity: &containerservice.ManagedClusterIdentityArgs{
 				Type: containerservice.ResourceIdentityTypeSystemAssigned,
 			},
+			IngressProfile: &containerservice.ManagedClusterIngressProfileArgs{
+				WebAppRouting: &containerservice.ManagedClusterIngressProfileWebAppRoutingArgs{
+					Enabled: pulumi.Bool(true),
+				},
+			},
 			AgentPoolProfiles: containerservice.ManagedClusterAgentPoolProfileArray{
 				containerservice.ManagedClusterAgentPoolProfileArgs{
 					Name:   pulumi.String("agentpool"),

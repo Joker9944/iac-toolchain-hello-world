@@ -1,0 +1,16 @@
+apiVersion: kpt.dev/v1
+kind: Kptfile
+metadata:
+  name: hello-toolchain-deploy
+  annotations:
+    config.kubernetes.io/local-config: "true"
+info:
+  description: hello-toolchain k8s manifests
+pipeline:
+  mutators:
+    - image: ghcr.io/kptdev/krm-functions-catalog/apply-setters:v0.2
+      configMap:
+        registry: hellotoolchainregistrybda91d3d.azurecr.io
+        backend-image: hello-backend
+        frontend-image: hello-frontend
+        tag: latest
